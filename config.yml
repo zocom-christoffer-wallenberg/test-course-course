@@ -40,12 +40,22 @@ before:
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
     title: Modul 7
-  - type: createIssue
+  - type: getFileContents
+    filename: module-1/module-1-hello-world.md
+    action_id: module_one
+  - type: octokit
+    method: issues.create
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
     title: Modul 1 - Hello World
-    body: module-1/module-1-hello-world.md
-    store:
-      first_issue_url: "{{ result.data.html_url }}"
-      first_issue_number: "{{ result.data.number }}"
+    body: "{{ actions.module_one }}"
+    milestone: 1
+  # - type: createIssue
+  #   title: Modul 1 - Hello World
+  #   body: module-1/module-1-hello-world.md
+  #   store:
+  #     first_issue_url: "{{ result.data.html_url }}"
+  #     first_issue_number: "{{ result.data.number }}"
 steps:
   - title: Modul 1 - Hello World
     description: >-
@@ -61,12 +71,6 @@ steps:
           issue_url: "{{ store.first_issue_url }}"
           issue_number: "{{ store.first_issue_number }}"
         issue: 1
-      - type: octokit
-        method: issues.update
-        owner: "%payload.repository.owner.login%"
-        repo: "%payload.repository.name%"
-        issue_number: 1
-        milestone: 1
       - type: createIssue
         title: Modul 2 - Komponenter
         body: module-2/module-2-components.md
