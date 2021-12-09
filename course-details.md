@@ -1,9 +1,4 @@
-This is the description we show on the course page [here](https://lab.github.com/zocom-christoffer-wallenberg/test-course). This first paragraph will be featured at the top of the page so make it great.
-​
 
-​
-Be sure to tell the learner about the technology you are teaching, why they should learn it, how they can use it, and what you will teach them.
-​
+React har snabbt blivit ett av de mest populära JavaScript-ramverken. Under den här utbildningen lär du dig skapa dynamiska webbapplikationer med ramverket React som en påbyggnad till traditionell JavaScript.
 
-
-Include information on how they can reach you for questions about the content or course. 
+Den här utbildningen behandlar hur du skapar UI-komponenter och applikationslogik i React. Du lär dig också att använda State, React Routing och Redux för att bygga moderna ”Single Page Applications”.

@@ -1,16 +1,137 @@
-title: test-course
-description: test
+title: 'Folkuniversitetet - Kortkurs: React.js'
+description: Kortkurs 20yhp i ramverket React.js
 template:
-  repo: test-course-template
-  name: test-course
+  repo: folkuniversitetet-react-h21-template
+  name: folkuniversitetet-react-ht21
+  description: Här hittar du alla kodexempel som är namngivna efter dess modul.
 before:
-  - type: createIssue
-    title: Welcome!
-    body: new-issue.md
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 1
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 2
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 3
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 4
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 5
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 6
+  - type: octokit
+    method: issues.createMilestone
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 7
+  - type: getFileContents
+    filename: module-1/module-1-hello-world.md
+    action_id: module_one
+  - type: octokit
+    method: issues.create
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    title: Modul 1 - Hello World
+    body: "{{ actions.module_one }}"
+    milestone: 1
+  # - type: createIssue
+  #   title: Modul 1 - Hello World
+  #   body: module-1/module-1-hello-world.md
 steps:
-  - title: First step
-    description: The first step in your course
-    event: issues.assigned
-    link: '{{ repoUrl }}'
+  - title: Modul 1 - Hello World
+    description: >-
+      I denna modul finns information om kursens förkunskaper, upplägg och
+      tekniska krav för att komma igång
+    video: https://player.vimeo.com/video/653010481?h=f93203a450
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/1'
     actions:
+      - type: respond
+        with: module-1/module-1-hello-world-completed.md
+        issue: 1
+      - type: createIssue
+        title: Modul 2 - Komponenter
+        body: module-2/module-2-components.md
+  - title: Modul 2 - Komponenter
+    description: >-
+      I denna modul utreder vi vad ett ramverk är samt hur man tänker i
+      komponenter.
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/2'
+    actions:
+      - type: respond
+        with: module-2/module-2-components-completed.md
+        issue: 2
+      - type: createIssue
+        title: Modul 3 - Interaktivitet
+        body: module-3/module-3-interactivity.md
+  - title: Modul 3 - Interaktivitet
+    description: I denna modul tittar vi på hur vi får in interaktivitet i vår React app samt dynamiskt renderar innehåll.
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/3'
+    actions:
+      - type: respond
+        with: module-3/module-3-interactivity-completed.md
+        issue: 3
+      - type: createIssue
+        title: Modul 4 - State
+        body: module-4/module-4-state.md
+  - title: Modul 4 - State
+    description: I denna modul kollar vi på vad ett state är och hur vi kan använda det i vår React app.
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/4'
+    actions:
+      - type: respond
+        with: module-4/module-4-state-completed.md
+        issue: 4
+      - type: createIssue
+        title: Modul 5 - React Router
+        body: module-5/module-5-react-router.md
+  - title: Modul 5 - React Router
+    description: I denna modul kikar vi på hur vi kan bygga en Single Page Application (SPA) med React router.
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/5'
+    actions:
+      - type: respond
+        with: module-5/module-5-react-router-completed.md
+        issue: 5
+      - type: createIssue
+        title: Modul 6 - Redux
+        body: module-6/module-6-redux.md
+  - title: Modul 6 - Redux
+    description: I denna modul utreder vi fördelar med ett state management system och kollar in vad Redux är och hur det fungerar tillsammans med React.
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/6'
+    actions:
+      - type: respond
+        with: module-6/module-6-redux-completed.md
+        issue: 6
+      - type: createIssue
+        title: Modul 7 - Slutexamination
+        body: module-7/module-7-final-examination.md
+  - title: Modul 7 - Slutexamination
+    description: Kursens slutexamination och bedömningsunderlag.
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/7'
+    actions:
+      - type: respond
+        with: module-7/module-7-final-examination-completed.md
+        issue: 7
       - type: closeIssue
+        issue: 7
