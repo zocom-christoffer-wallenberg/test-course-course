@@ -50,7 +50,7 @@ before:
     method: issues.update
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
-    issue_number: {{ first_issue_number }}
+    issue_number: "{{ first_issue_number }}"
     milestone: 1
 steps:
   - title: Modul 1 - Hello World
