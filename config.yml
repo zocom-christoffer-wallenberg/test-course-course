@@ -67,12 +67,14 @@ steps:
         issue: 1
       - type: getFileContents
         filename: index.html
+        sha: "%payload.head_commit.id%"
+        action_id: hello
       - type: octokit
         method: issues.create
         owner: "%payload.repository.owner.login%"
         repo: "%payload.repository.name%"
         title: Modul 2 - Komponenter
-        body: "{{ result }}"
+        body: "{{ actions.hello }}"
         milestone: 1
   - title: Modul 2 - Komponenter
     description: >-
