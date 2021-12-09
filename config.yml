@@ -42,7 +42,7 @@ before:
     title: Modul 7
   - type: getFileContents
     action_id: hello
-    filename: module-1/index.html
+    filename: index.html
   - type: octokit
     method: issues.create
     owner: "%payload.repository.owner.login%"
