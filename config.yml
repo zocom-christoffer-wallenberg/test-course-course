@@ -40,21 +40,18 @@ before:
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
     title: Modul 7
-  - type: getFileContents
-    filename: module-1/module-1-hello-world.md
-    action_id: module_one
   - type: createIssue
     title: Modul 1 - Hello World
     body: module-1/module-1-hello-world.md
-    data:
-      debug: "{{ actions.module_one }}"
-  # - type: octokit
-  #   method: issues.create
-  #   owner: "%payload.repository.owner.login%"
-  #   repo: "%payload.repository.name%"
-  #   title: Modul 1 - Hello World
-  #   body: "{{ actions.module_one }}"
-  #   milestone: 1
+    store:
+      first_issue_url: "{{ result.data.html_url }}"
+      first_issue_number: "{{ result.data.number }}"
+  - type: octokit
+    method: issues.update
+    owner: "%payload.repository.owner.login%"
+    repo: "%payload.repository.name%"
+    issue_number: {{ first_issue_number }}
+    milestone: 1
 steps:
   - title: Modul 1 - Hello World
     description: >-
