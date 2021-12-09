@@ -64,9 +64,6 @@ steps:
     actions:
       - type: respond
         with: module-1/module-1-hello-world-completed.md
-        data: 
-          issue_url: "{{ store.first_issue_url }}"
-          issue_number: "{{ store.first_issue_number }}"
         issue: 1
       - type: getFileContents
         action_id: hello
