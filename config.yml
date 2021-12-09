@@ -40,9 +40,6 @@ before:
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
     title: Modul 7
-  - type: getFileContents
-    action_id: hello
-    filename: index.html
   - type: octokit
     method: issues.create
     owner: "%payload.repository.owner.login%"
@@ -71,9 +68,16 @@ steps:
           issue_url: "{{ store.first_issue_url }}"
           issue_number: "{{ store.first_issue_number }}"
         issue: 1
-      - type: createIssue
+      - type: getFileContents
+        action_id: hello
+        filename: index.html
+      - type: octokit
+        method: issues.create
+        owner: "%payload.repository.owner.login%"
+        repo: "%payload.repository.name%"
         title: Modul 2 - Komponenter
-        body: module-2/module-2-components.md
+        body: "%actions.hello%"
+        milestone: 1
   - title: Modul 2 - Komponenter
     description: >-
       I denna modul utreder vi vad ett ramverk är samt hur man tänker i
