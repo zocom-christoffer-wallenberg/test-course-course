@@ -65,7 +65,7 @@ steps:
         method: issues.update
         owner: "%payload.repository.owner.login%"
         repo: "%payload.repository.name%"
-        issue_number: "{{ store.first_issue_number }}"
+        issue_number: 1
         milestone: 1
       - type: createIssue
         title: Modul 2 - Komponenter
