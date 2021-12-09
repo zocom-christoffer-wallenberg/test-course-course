@@ -50,9 +50,6 @@ before:
     title: Modul 1 - Hello World
     body: "{{ actions.module_one }}"
     milestone: 1
-  # - type: createIssue
-  #   title: Modul 1 - Hello World
-  #   body: module-1/module-1-hello-world.md
 steps:
   - title: Modul 1 - Hello World
     description: >-
