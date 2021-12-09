@@ -1,8 +1,8 @@
-title: 'Folkuniversitetet - Kortkurs: React.js'
-description: Kortkurs 20yhp i ramverket React.js
+title: test-course
+description: test
 template:
-  repo: folkuniversitetet-react-h21-template
-  name: folkuniversitetet-react-ht21
+  repo: test-course-template
+  name: test-course
   description: Här hittar du alla kodexempel som är namngivna efter dess modul.
 before:
   - type: octokit
