@@ -40,15 +40,15 @@ before:
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
     title: Modul 7
-  - type: getFileContents
-    action_id: hello
-    filename: module-1/module-1-hello-world-completed.md
+  # - type: getFileContents
+  #   action_id: hello
+  #   filename: module-1/module-1-hello-world-completed.md
   - type: octokit
     method: issues.create
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
     title: Modul 1 - Hello World
-    body: "%actions.hello%"
+    body: "Hej"
     milestone: 1
   # - type: createIssue
   #   title: Modul 1 - Hello World
