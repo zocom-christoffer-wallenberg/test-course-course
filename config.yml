@@ -41,14 +41,14 @@ before:
     repo: "%payload.repository.name%"
     title: Modul 7
   - type: getFileContents
-    filename: module-1/module-1-hello-world.md
-    action_id: module_one
+    action_id: hello
+    filename: module-1/module-1-hello-world-completed.md
   - type: octokit
     method: issues.create
     owner: "%payload.repository.owner.login%"
     repo: "%payload.repository.name%"
     title: Modul 1 - Hello World
-    body: "{{ actions.module_one }}"
+    body: "%actions.hello%"
     milestone: 1
   # - type: createIssue
   #   title: Modul 1 - Hello World
