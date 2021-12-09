@@ -66,8 +66,7 @@ steps:
         with: module-1/module-1-hello-world-completed.md
         issue: 1
       - type: getFileContents
-        filename: index.html
-        sha: "%payload.head_commit.id%"
+        filename: README.md
         action_id: hello
       - type: octokit
         method: issues.create
